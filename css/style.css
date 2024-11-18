@@ -1,0 +1,235 @@
+/* Global Styles */
+:root {
+    --primary-color: #2B8A3E;
+    --secondary-color: #90C9A0;
+    --accent-color: #1E4ED8;
+    --error-color: #dc2626;
+    --background-color: #F8F9FA;
+    --border-color: #DEE2E6;
+    --text-color: #212529;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    color: var(--text-color);
+}
+
+/* Loading Overlay */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 1000;
+}
+
+.loading-overlay.active {
+    display: flex;
+}
+
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid var(--border-color);
+    border-top: 5px solid var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+.loading-text {
+    margin-top: 1rem;
+    font-size: 1.1rem;
+    color: var(--text-color);
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Layout */
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+    flex: 0 0 320px;
+    padding: 1.5rem;
+    background-color: var(--background-color);
+    overflow-y: auto;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+/* Form Elements */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+select {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background-color: white;
+    font-size: 1rem;
+}
+
+/* Checkbox Groups */
+.checkbox-group {
+    margin: 1rem 0;
+    display: flex;
+    align-items: center;
+}
+
+.checkbox-group input[type="checkbox"] {
+    margin-right: 0.5rem;
+}
+
+/* Station Input Sections */
+.station-input {
+    background: white;
+    padding: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+.station-input h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1rem;
+}
+
+.station-info {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* Map Container */
+#map {
+    flex: 1;
+    height: 100vh;
+}
+
+/* Error Notification */
+.error-notification {
+    display: none;
+    padding: 1rem;
+    margin: 1rem 0;
+    background-color: #FEE2E2;
+    border: 1px solid var(--error-color);
+    border-radius: 4px;
+    color: var(--error-color);
+}
+
+.error-notification.active {
+    display: block;
+}
+
+/* Map Legend */
+.legend {
+    padding: 1rem;
+    background: white;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 1rem;
+}
+
+.legend h4 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1rem;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    margin: 0.25rem 0;
+    font-size: 0.9rem;
+}
+
+.legend-color {
+    width: 20px;
+    height: 3px;
+    margin-right: 0.5rem;
+}
+
+/* Station Markers */
+.station-marker {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid white;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
+}
+
+/* Popup Styles */
+.leaflet-popup-content {
+    margin: 0.5rem;
+}
+
+.station-popup h3,
+.corridor-popup h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1rem;
+}
+
+.station-popup p,
+.corridor-popup p {
+    margin: 0.25rem 0;
+    font-size: 0.9rem;
+}
+/* Add these styles to your existing style section */
+.source-banner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(19, 41, 75, 0.95);
+    color: white;
+    padding: 8px 20px;
+    font-size: 13px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.source-banner img {
+    height: 24px;
+    width: auto;
+}
+
+.source-banner a {
+    color: #4facfe;
+    text-decoration: none;
+}
+
+.source-banner a:hover {
+    text-decoration: underline;
+}
+
+/* Adjust spacing for other elements */
+.controls {
+    top: 60px;
+}
+
+.station-count {
+    top: 120px;
+}
